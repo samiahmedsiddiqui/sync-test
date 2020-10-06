@@ -14,7 +14,7 @@ fi
 echo "=====";
 
 echo "${GITHUB_ACTOR}";
-echo "${INPUT_GITHUB_TOKEN}";
+echo "${GITHUB_TOKEN}";
 echo "-----";
 
 

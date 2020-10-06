@@ -57,7 +57,7 @@ delete_temp_dir () {
 }
 
 # Clone (sync FROM) repo
-git clone "https://github.com/${SYNC_FROM_REPO}.git" $SYNC_FROM_REPO
+git clone "https://gitlab.com/${SYNC_FROM_REPO}.git" $SYNC_FROM_REPO
 
 if [ ! -d "$SYNC_FROM_REPO" ];
 then
@@ -92,7 +92,7 @@ else
 fi
 
 # Clone (sync TO) repo
-git clone "https://github.com/${SYNC_TO_REPO}.git" $SYNC_TO_REPO
+git clone "https://gitlab.com/${SYNC_TO_REPO}.git" $SYNC_TO_REPO
 
 if [ ! -d "$SYNC_TO_REPO" ];
 then

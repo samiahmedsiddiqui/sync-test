@@ -11,7 +11,8 @@ then
   exit 1
 fi
 
-echo $GITHUB_ACTOR;
+echo "${GITHUB_ACTOR}";
+echo "${INPUT_GITHUB_TOKEN}";
 
 # Set sync FROM repo
 SYNC_FROM_REPO=$1

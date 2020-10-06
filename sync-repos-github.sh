@@ -11,12 +11,7 @@ then
   exit 1
 fi
 
-
-
-string='My long string'
-if [[ $string == *"My long"* ]]; then
-  echo "It's there!"
-fi
+echo $GITHUB_ACTOR;
 
 # Set sync FROM repo
 SYNC_FROM_REPO=$1
@@ -150,6 +145,8 @@ then
     # Set branch to track to the upstream
     git push --quiet --set-upstream origin $SYNC_TO_BRANCH
   else
+    remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${SYNC_TO_REPO}.git"
+
     # Push changes to the upstream
     git push --quiet
   fi

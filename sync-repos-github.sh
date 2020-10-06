@@ -130,7 +130,7 @@ fi
 rsync -r --delete --exclude=.git ../../${SYNC_FROM_REPO}/ ./
 
 STATUS=`git status`
-if [ $STATUS == *"Changes not staged for commit"* ];
+if [[ "$STATUS" == *"Changes not staged for commit"* ]];
 then
   # Add all changes to stage
   git add -A

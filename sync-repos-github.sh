@@ -11,6 +11,11 @@ then
   exit 1
 fi
 
+string='My long string'
+if [[ $string == *"My long"* ]]; then
+  echo "It's there!"
+fi
+
 # Set sync FROM repo
 SYNC_FROM_REPO=$1
 

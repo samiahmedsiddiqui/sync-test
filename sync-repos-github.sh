@@ -13,7 +13,6 @@ fi
 
 echo "=====";
 
-echo "${GITHUB_ACTOR}";
 echo "${GITHUB_TOKEN}";
 echo "-----";
 
@@ -137,6 +136,8 @@ fi
 rsync -r --delete --exclude=.git ../../${SYNC_FROM_REPO}/ ./
 
 STATUS=`git status`
+REMOTE_REPO="https://samiahmedsiddiqui:${GITHUB_TOKEN}@github.com/${SYNC_TO_REPO}.git"
+
 if [[ "$STATUS" == *"Changes not staged for commit"* ]];
 then
   # Add all changes to stage
@@ -148,12 +149,10 @@ then
   if [ ! -n "$BRANCH_EXISTS" ];
   then
     # Set branch to track to the upstream
-    git push --quiet --set-upstream origin $SYNC_TO_BRANCH
+    git push --quiet --set-upstream origin $SYNC_TO_BRANCH REMOTE_REPO
   else
-    remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${SYNC_TO_REPO}.git"
-
     # Push changes to the upstream
-    git push --quiet
+    git push --quiet REMOTE_REPO
   fi
 
   echo "${GREEN}${SYNC_TO_BRANCH} branch of ${SYNC_TO_REPO} gets synced from the ${SYNC_FROM_BRANCH} branch of ${SYNC_FROM_REPO}${NC}"

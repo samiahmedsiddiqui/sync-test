@@ -7,8 +7,6 @@ env:
   global:
   - github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
 
-echo $GITHUB_TOKEN
-
 #before_script:
 #  - git clone -b v1.0.0 --depth 1 https://github.com/samiahmedsiddiqui/sync-repos.git
 #  - cd sync-repos

@@ -11,6 +11,8 @@ then
   exit 1
 fi
 
+
+
 string='My long string'
 if [[ $string == *"My long"* ]]; then
   echo "It's there!"
@@ -45,7 +47,7 @@ fi
 TEMP_DIR="samiahmedsiddiqui-$(date +%s)"
 
 # Save directory path for later use (To delete temporary directory)
-DIR_PATH=`PWD`
+DIR_PATH=`pwd`
 
 # Create temporary directory for clone and sync
 mkdir $TEMP_DIR

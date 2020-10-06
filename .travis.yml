@@ -1,0 +1,16 @@
+language: node_js
+node_js: '12.16.3'
+cache: yarn
+os: linux
+
+env:
+  global:
+  - github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+
+echo $GITHUB_TOKEN
+
+#before_script:
+#  - git clone -b v1.0.0 --depth 1 https://github.com/samiahmedsiddiqui/sync-repos.git
+#  - cd sync-repos
+script:
+  - ./sync-repos-github.sh samiahmedsiddiqui/sync-repos master samiahmedsiddiqui/sync-repos-test test1
